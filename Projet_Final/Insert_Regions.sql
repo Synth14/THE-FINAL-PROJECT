@@ -14,6 +14,5 @@ VALUES ('Marrakech-Safi','1'),('Casablanca Settat','1'),('Fès Meknès','1'),
 ('Sardaigne','11'),('Lombardie','11'),('Vénétie','11'),
 ('Andalousie','12'),('Catalogne','12'),('Galice','12'),
 ('Queensland ','13'),('Tazmanie','13'),('Îles Cocos','13'),
-('Andalousie','14'),('Catalogne','14'),('Galice','14'),
 ('Division du nord','15'),('Division Orientale','15'),('Division Occidentale','15')
 GO
