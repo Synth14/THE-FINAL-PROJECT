@@ -17,7 +17,7 @@ namespace THE_FINAL_PROJECT.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private FinalDBContext context = new FinalDBContext();
+        private FinalDBModel context = new FinalDBModel();
 
         public AccountController()
         {
