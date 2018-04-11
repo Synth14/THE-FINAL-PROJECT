@@ -46,23 +46,19 @@ namespace THE_FINAL_PROJECT
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Supprimer les commentaires des lignes suivantes pour autoriser la connexion avec des fournisseurs de connexions tiers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+           //app.UseMicrosoftAccountAuthentication(
+           //    clientId: "",
+           //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+           //app.UseTwitterAuthentication(
+           //   consumerKey: "",
+           //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+           //app.UseFacebookAuthentication(
+           //   appId: "",
+           //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+          //OauthWebSecurity.RegisterGoogleClient();
         }
     }
 }
