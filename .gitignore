@@ -259,3 +259,13 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Projet_Final/Table_Voyage.sql
+/Projet_Final/Table_Regions.sql
+/Projet_Final/Table_Pays.sql
+/Projet_Final/Table_Continent.sql
+/Projet_Final/Table_Commande.sql
+/Projet_Final/Table_Client.sql
+/Projet_Final/Projet_Final.ssmssqlproj
+/Projet_Final/Projet_final.ssmssln
+/Projet_Final/Create_FinalDB.sql
+/FinalDB.bak
