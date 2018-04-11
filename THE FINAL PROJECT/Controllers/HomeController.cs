@@ -24,15 +24,13 @@ namespace THE_FINAL_PROJECT.Controllers
 
             return View();
         }
-        [Authorize(Roles = "AdminMailing")]
-        [Authorize(Roles = "superadmin")]
+        [Authorize(Roles = "AdminCommercial, superadmin")]
         public ActionResult GestionMailing()
         {
             ViewBag.Message = "Mailing side";
             return View();
         }
-        [Authorize(Roles = "AdminCommercial")]
-        [Authorize(Roles = "superadmin")]
+        [Authorize(Roles = "AdminCommercial, superadmin")]
         public ActionResult GestionCommande()
         {
             ViewBag.Message = "Commande side";

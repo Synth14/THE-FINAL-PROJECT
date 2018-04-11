@@ -203,6 +203,7 @@
       <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommandesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -321,6 +322,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\GestionCommande.cshtml" />
     <Content Include="Views\Home\Attribuer.cshtml" />
+    <Content Include="Views\Commandes\Edit.cshtml" />
+    <Content Include="Views\Commandes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
