@@ -14,16 +14,10 @@ namespace THE_FINAL_PROJECT
     
     public partial class Region
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Region()
-        {
-            this.Pays = new HashSet<Pay>();
-        }
-    
         public long IdRegions { get; set; }
+        public Nullable<long> IdPays { get; set; }
         public string Nom { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pay> Pays { get; set; }
+        public virtual Pay Pay { get; set; }
     }
 }

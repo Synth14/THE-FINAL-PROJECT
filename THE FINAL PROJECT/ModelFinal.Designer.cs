@@ -1,4 +1,4 @@
-﻿// La génération de code T4 est activée pour le modèle 'S:\Formation\Jeff\Moi\Codes\Projet Final\THE-FINAL-PROJECT\THE FINAL PROJECT\ModelFinalEF.edmx'. 
+﻿// La génération de code T4 est activée pour le modèle 'C:\Users\Adminl\Source\Repos\THE-FINAL-PROJECT\THE FINAL PROJECT\ModelFinal.edmx'. 
 // Pour activer la génération de code héritée, définissez la valeur de la propriété
 // du concepteur 'Stratégie de génération de code' sur 'ObjectContext hérité'. Cette propriété est disponible dans la fenêtre Propriétés lorsque le modèle
 //  est ouvert dans le concepteur.

@@ -17,14 +17,15 @@ namespace THE_FINAL_PROJECT
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Continent()
         {
+            this.Pays = new HashSet<Pay>();
             this.Voyages = new HashSet<Voyage>();
         }
     
         public long IdContinent { get; set; }
         public string Nom { get; set; }
-        public long IdPays { get; set; }
     
-        public virtual Pay Pay { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pay> Pays { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Voyage> Voyages { get; set; }
     }

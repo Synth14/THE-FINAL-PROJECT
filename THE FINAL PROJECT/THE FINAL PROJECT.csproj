@@ -192,13 +192,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Client.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Commande.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Continent.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -206,37 +206,37 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ModelFinalEF.Context.cs">
+    <Compile Include="ModelFinal.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelFinalEF.Context.tt</DependentUpon>
+      <DependentUpon>ModelFinal.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelFinalEF.cs">
+    <Compile Include="ModelFinal.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelFinalEF.Designer.cs">
+    <Compile Include="ModelFinal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelFinalEF.edmx</DependentUpon>
+      <DependentUpon>ModelFinal.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Pay.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Voyage.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -250,27 +250,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="ModelFinalEF.Context.tt">
+    <Content Include="ModelFinal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelFinalEF.edmx</DependentUpon>
-      <LastGenOutput>ModelFinalEF.Context.cs</LastGenOutput>
+      <DependentUpon>ModelFinal.edmx</DependentUpon>
+      <LastGenOutput>ModelFinal.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelFinalEF.tt">
+    <Content Include="ModelFinal.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelFinalEF.edmx</DependentUpon>
-      <LastGenOutput>ModelFinalEF.cs</LastGenOutput>
+      <DependentUpon>ModelFinal.edmx</DependentUpon>
+      <LastGenOutput>ModelFinal.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="ModelFinalEF.edmx">
+    <EntityDeploy Include="ModelFinal.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelFinalEF.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelFinal.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="ModelFinalEF.edmx.diagram">
-      <DependentUpon>ModelFinalEF.edmx</DependentUpon>
+    <Content Include="ModelFinal.edmx.diagram">
+      <DependentUpon>ModelFinal.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
