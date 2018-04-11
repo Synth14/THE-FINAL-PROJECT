@@ -13,10 +13,10 @@ namespace THE_FINAL_PROJECT
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinalDBContext : DbContext
+    public partial class FinalDBModel : DbContext
     {
-        public FinalDBContext()
-            : base("name=FinalDBContext")
+        public FinalDBModel()
+            : base("name=FinalDBModel")
         {
         }
     

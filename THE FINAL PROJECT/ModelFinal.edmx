@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FinalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="FinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="IdClient" />
@@ -34,23 +34,23 @@
           <Key>
             <PropertyRef Name="IdContinent" />
           </Key>
-          <Property Name="IdContinent" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdContinent" Type="bigint" Nullable="false" />
           <Property Name="Nom" Type="nvarchar" MaxLength="50" />
-          <Property Name="IdPays" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Pays">
           <Key>
             <PropertyRef Name="IdPays" />
           </Key>
-          <Property Name="IdPays" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPays" Type="bigint" Nullable="false" />
           <Property Name="Nom" Type="nvarchar" MaxLength="50" />
-          <Property Name="IdRegions" Type="bigint" Nullable="false" />
+          <Property Name="IdContinent" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Regions">
           <Key>
             <PropertyRef Name="IdRegions" />
           </Key>
-          <Property Name="IdRegions" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRegions" Type="bigint" Nullable="false" />
+          <Property Name="IdPays" Type="bigint" />
           <Property Name="Nom" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -100,27 +100,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Continent_Pays">
-          <End Role="Pays" Type="Self.Pays" Multiplicity="1" />
-          <End Role="Continent" Type="Self.Continent" Multiplicity="*" />
+        <Association Name="FK_Pays_Continent">
+          <End Role="Continent" Type="Self.Continent" Multiplicity="1" />
+          <End Role="Pays" Type="Self.Pays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continent">
+              <PropertyRef Name="IdContinent" />
+            </Principal>
+            <Dependent Role="Pays">
+              <PropertyRef Name="IdContinent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Regions_Pays">
+          <End Role="Pays" Type="Self.Pays" Multiplicity="0..1" />
+          <End Role="Regions" Type="Self.Regions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pays">
               <PropertyRef Name="IdPays" />
             </Principal>
-            <Dependent Role="Continent">
+            <Dependent Role="Regions">
               <PropertyRef Name="IdPays" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Pays_Regions">
-          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
-          <End Role="Pays" Type="Self.Pays" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Regions">
-              <PropertyRef Name="IdRegions" />
-            </Principal>
-            <Dependent Role="Pays">
-              <PropertyRef Name="IdRegions" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -136,7 +136,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FinalDBModelStoreContainer">
+        <EntityContainer Name="FinalModelStoreContainer">
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Continent" EntityType="Self.Continent" Schema="dbo" store:Type="Tables" />
@@ -152,13 +152,13 @@
             <End Role="Voyage" EntitySet="Voyage" />
             <End Role="Commande" EntitySet="Commande" />
           </AssociationSet>
-          <AssociationSet Name="FK_Continent_Pays" Association="Self.FK_Continent_Pays">
-            <End Role="Pays" EntitySet="Pays" />
+          <AssociationSet Name="FK_Pays_Continent" Association="Self.FK_Pays_Continent">
             <End Role="Continent" EntitySet="Continent" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Pays_Regions" Association="Self.FK_Pays_Regions">
-            <End Role="Regions" EntitySet="Regions" />
             <End Role="Pays" EntitySet="Pays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Regions_Pays" Association="Self.FK_Regions_Pays">
+            <End Role="Pays" EntitySet="Pays" />
+            <End Role="Regions" EntitySet="Regions" />
           </AssociationSet>
           <AssociationSet Name="FK_Voyage_Continent" Association="Self.FK_Voyage_Continent">
             <End Role="Continent" EntitySet="Continent" />
@@ -169,7 +169,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="FinalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="FinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="IdClient" />
@@ -202,29 +202,29 @@
           <Key>
             <PropertyRef Name="IdContinent" />
           </Key>
-          <Property Name="IdContinent" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdContinent" Type="Int64" Nullable="false" />
           <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IdPays" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Pay" Relationship="Self.FK_Continent_Pays" FromRole="Continent" ToRole="Pays" />
+          <NavigationProperty Name="Pays" Relationship="Self.FK_Pays_Continent" FromRole="Continent" ToRole="Pays" />
           <NavigationProperty Name="Voyages" Relationship="Self.FK_Voyage_Continent" FromRole="Continent" ToRole="Voyage" />
         </EntityType>
         <EntityType Name="Pay">
           <Key>
             <PropertyRef Name="IdPays" />
           </Key>
-          <Property Name="IdPays" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPays" Type="Int64" Nullable="false" />
           <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IdRegions" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Continents" Relationship="Self.FK_Continent_Pays" FromRole="Pays" ToRole="Continent" />
-          <NavigationProperty Name="Region" Relationship="Self.FK_Pays_Regions" FromRole="Pays" ToRole="Regions" />
+          <Property Name="IdContinent" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Continent" Relationship="Self.FK_Pays_Continent" FromRole="Pays" ToRole="Continent" />
+          <NavigationProperty Name="Regions" Relationship="Self.FK_Regions_Pays" FromRole="Pays" ToRole="Regions" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
             <PropertyRef Name="IdRegions" />
           </Key>
-          <Property Name="IdRegions" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRegions" Type="Int64" Nullable="false" />
+          <Property Name="IdPays" Type="Int64" />
           <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Pays" Relationship="Self.FK_Pays_Regions" FromRole="Regions" ToRole="Pays" />
+          <NavigationProperty Name="Pay" Relationship="Self.FK_Regions_Pays" FromRole="Regions" ToRole="Pays" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -275,15 +275,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Continent_Pays">
-          <End Role="Pays" Type="Self.Pay" Multiplicity="1" />
-          <End Role="Continent" Type="Self.Continent" Multiplicity="*" />
+        <Association Name="FK_Pays_Continent">
+          <End Role="Continent" Type="Self.Continent" Multiplicity="1" />
+          <End Role="Pays" Type="Self.Pay" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pays">
-              <PropertyRef Name="IdPays" />
+            <Principal Role="Continent">
+              <PropertyRef Name="IdContinent" />
             </Principal>
-            <Dependent Role="Continent">
-              <PropertyRef Name="IdPays" />
+            <Dependent Role="Pays">
+              <PropertyRef Name="IdContinent" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -299,19 +299,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pays_Regions">
-          <End Role="Regions" Type="Self.Region" Multiplicity="1" />
-          <End Role="Pays" Type="Self.Pay" Multiplicity="*" />
+        <Association Name="FK_Regions_Pays">
+          <End Role="Pays" Type="Self.Pay" Multiplicity="0..1" />
+          <End Role="Regions" Type="Self.Region" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Regions">
-              <PropertyRef Name="IdRegions" />
+            <Principal Role="Pays">
+              <PropertyRef Name="IdPays" />
             </Principal>
-            <Dependent Role="Pays">
-              <PropertyRef Name="IdRegions" />
+            <Dependent Role="Regions">
+              <PropertyRef Name="IdPays" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FinalDBContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FinalDBModel" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="Commandes" EntityType="Self.Commande" />
           <EntitySet Name="Continents" EntityType="Self.Continent" />
@@ -327,17 +327,17 @@
             <End Role="Voyage" EntitySet="Voyages" />
             <End Role="Commande" EntitySet="Commandes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Continent_Pays" Association="Self.FK_Continent_Pays">
-            <End Role="Pays" EntitySet="Pays" />
+          <AssociationSet Name="FK_Pays_Continent" Association="Self.FK_Pays_Continent">
             <End Role="Continent" EntitySet="Continents" />
+            <End Role="Pays" EntitySet="Pays" />
           </AssociationSet>
           <AssociationSet Name="FK_Voyage_Continent" Association="Self.FK_Voyage_Continent">
             <End Role="Continent" EntitySet="Continents" />
             <End Role="Voyage" EntitySet="Voyages" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pays_Regions" Association="Self.FK_Pays_Regions">
-            <End Role="Regions" EntitySet="Regions" />
+          <AssociationSet Name="FK_Regions_Pays" Association="Self.FK_Regions_Pays">
             <End Role="Pays" EntitySet="Pays" />
+            <End Role="Regions" EntitySet="Regions" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -345,9 +345,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FinalDBModelStoreContainer" CdmEntityContainer="FinalDBContext">
+        <EntityContainerMapping StorageEntityContainer="FinalModelStoreContainer" CdmEntityContainer="FinalDBModel">
           <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="FinalDBModel.Client">
+            <EntityTypeMapping TypeName="FinalModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="Admin" ColumnName="Admin" />
@@ -360,7 +360,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Commandes">
-            <EntityTypeMapping TypeName="FinalDBModel.Commande">
+            <EntityTypeMapping TypeName="FinalModel.Commande">
               <MappingFragment StoreEntitySet="Commande">
                 <ScalarProperty Name="IdCommande" ColumnName="IdCommande" />
                 <ScalarProperty Name="NbPlaceDemande" ColumnName="NbPlaceDemande" />
@@ -374,33 +374,33 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Continents">
-            <EntityTypeMapping TypeName="FinalDBModel.Continent">
+            <EntityTypeMapping TypeName="FinalModel.Continent">
               <MappingFragment StoreEntitySet="Continent">
                 <ScalarProperty Name="IdContinent" ColumnName="IdContinent" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
-                <ScalarProperty Name="IdPays" ColumnName="IdPays" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pays">
-            <EntityTypeMapping TypeName="FinalDBModel.Pay">
+            <EntityTypeMapping TypeName="FinalModel.Pay">
               <MappingFragment StoreEntitySet="Pays">
                 <ScalarProperty Name="IdPays" ColumnName="IdPays" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
-                <ScalarProperty Name="IdRegions" ColumnName="IdRegions" />
+                <ScalarProperty Name="IdContinent" ColumnName="IdContinent" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Regions">
-            <EntityTypeMapping TypeName="FinalDBModel.Region">
+            <EntityTypeMapping TypeName="FinalModel.Region">
               <MappingFragment StoreEntitySet="Regions">
                 <ScalarProperty Name="IdRegions" ColumnName="IdRegions" />
+                <ScalarProperty Name="IdPays" ColumnName="IdPays" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="FinalDBModel.sysdiagram">
+            <EntityTypeMapping TypeName="FinalModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -411,7 +411,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Voyages">
-            <EntityTypeMapping TypeName="FinalDBModel.Voyage">
+            <EntityTypeMapping TypeName="FinalModel.Voyage">
               <MappingFragment StoreEntitySet="Voyage">
                 <ScalarProperty Name="IdVoyage" ColumnName="IdVoyage" />
                 <ScalarProperty Name="Titre" ColumnName="Titre" />

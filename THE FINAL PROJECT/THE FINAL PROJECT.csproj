@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +56,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -192,82 +194,102 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Client.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Commande.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Continent.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommandesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ModelFinalEF.Context.cs">
+    <Compile Include="ModelFinal.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelFinalEF.Context.tt</DependentUpon>
+      <DependentUpon>ModelFinal.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelFinalEF.cs">
+    <Compile Include="ModelFinal.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelFinalEF.Designer.cs">
+    <Compile Include="ModelFinal.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelFinalEF.edmx</DependentUpon>
+      <DependentUpon>ModelFinal.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Pay.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
     <Compile Include="Voyage.cs">
-      <DependentUpon>ModelFinalEF.tt</DependentUpon>
+      <DependentUpon>ModelFinal.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-THE FINAL PROJECT-20180410124631.mdf" />
+    <Content Include="App_Data\aspnet-THE FINAL PROJECT-20180410124631_log.ldf">
+      <DependentUpon>aspnet-THE FINAL PROJECT-20180410124631.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PhotoVoyage\Bengale-Inde.jpg" />
+    <Content Include="Content\PhotoVoyage\Cap_Vert-Senegal.JPG" />
+    <Content Include="Content\PhotoVoyage\Chiwawa-mexique.jpg" />
+    <Content Include="Content\PhotoVoyage\Galice-Espagne.jpg" />
+    <Content Include="Content\PhotoVoyage\Hokkaido-Japon.jpg" />
+    <Content Include="Content\PhotoVoyage\marrakech-maroc.jpg" />
+    <Content Include="Content\PhotoVoyage\nauru.jpg" />
+    <Content Include="Content\PhotoVoyage\Nevada-Amerique_ml.jpg" />
+    <Content Include="Content\PhotoVoyage\Perros-guirec-Bretagne.jpg" />
+    <Content Include="Content\PhotoVoyage\Phuket-Thailande.jpg" />
+    <Content Include="Content\PhotoVoyage\Province_Des_Prairies-Canada.jpg" />
+    <Content Include="Content\PhotoVoyage\Sardaigne-Italie.jpg" />
+    <Content Include="Content\PhotoVoyage\Tasmanie-Australie.jpg" />
+    <Content Include="Content\PhotoVoyage\tunisie-monastir.jpg" />
+    <Content Include="Content\PhotoVoyage\îles-Fidji.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="ModelFinalEF.Context.tt">
+    <Content Include="ModelFinal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelFinalEF.edmx</DependentUpon>
-      <LastGenOutput>ModelFinalEF.Context.cs</LastGenOutput>
+      <DependentUpon>ModelFinal.edmx</DependentUpon>
+      <LastGenOutput>ModelFinal.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelFinalEF.tt">
+    <Content Include="ModelFinal.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelFinalEF.edmx</DependentUpon>
-      <LastGenOutput>ModelFinalEF.cs</LastGenOutput>
+      <DependentUpon>ModelFinal.edmx</DependentUpon>
+      <LastGenOutput>ModelFinal.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="ModelFinalEF.edmx">
+    <EntityDeploy Include="ModelFinal.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelFinalEF.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelFinal.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="ModelFinalEF.edmx.diagram">
-      <DependentUpon>ModelFinalEF.edmx</DependentUpon>
+    <Content Include="ModelFinal.edmx.diagram">
+      <DependentUpon>ModelFinal.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -314,10 +336,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\GestionCommande.cshtml" />
+    <Content Include="Views\Home\Attribuer.cshtml" />
+    <Content Include="Views\Commandes\Edit.cshtml" />
+    <Content Include="Views\Commandes\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using static THE_FINAL_PROJECT.Models.Repository;
+using System.Web.Security;
 
 namespace THE_FINAL_PROJECT.Controllers
 {
@@ -13,30 +13,38 @@ namespace THE_FINAL_PROJECT.Controllers
         {
             return View();
         }
-
-        //public void AfficheContinent()
-        //{
-        //    Continent continents = new Continent();
-        //    RenderView("Index", continents);
-        //}
-
-        //public void AffichePays(long IdContinent)
-        //{
-        //    Pays pays = new Pays(IdContinent);
-        //    RenderView("Index", pays);
-        //}
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        [Authorize(Roles = "AdminCommercial, superadmin")]
+        public ActionResult GestionMailing()
+        {
+            ViewBag.Message = "Mailing side";
+            return View();
+        }
+        [Authorize(Roles = "AdminCommercial, superadmin")]
+        public ActionResult GestionCommande()
+        {
+            ViewBag.Message = "Commande side";
+            return View();
+        }
+        [Authorize]
+        public ActionResult Attribuer()
+        {
+            if (!Roles.RoleExists("AdminCommercial")) Roles.CreateRole("AdminCommercial");
+            if (!Roles.RoleExists("superadmin")) Roles.CreateRole("superadmin");
+            if (!Roles.RoleExists("AdminMailing")) Roles.CreateRole("AdminMailing");
+            if (!Roles.IsUserInRole("manchon.maxime@gmail.com", "superadmin"))
+                Roles.AddUserToRole("manchon.maxime@gmail.com", "superadmin");
+            ViewBag.Message = "Passage en mode SuperUser";
             return View();
         }
     }
