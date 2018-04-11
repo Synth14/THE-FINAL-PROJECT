@@ -248,6 +248,7 @@
     <Content Include="App_Data\aspnet-THE FINAL PROJECT-20180410124631_log.ldf">
       <DependentUpon>aspnet-THE FINAL PROJECT-20180410124631.mdf</DependentUpon>
     </Content>
+    <None Include="BOUH" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PhotoVoyage\Bengale-Inde.jpg" />
