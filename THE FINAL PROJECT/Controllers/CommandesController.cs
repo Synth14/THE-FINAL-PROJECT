@@ -43,7 +43,7 @@ namespace THE_FINAL_PROJECT.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdCommande,NbPlaceDemande,TotalCommande,Solvabilite,EtatCommande,IdVoyage,DateCommande,IdClient")] Commande commande)
+        public ActionResult Edit([Bind(Include = "IdCommande,NbPlaceDemande,TotalCommande,Solvabilite,EtatCommande,IdVoyage,DateCommande,IdClient, NbPlaceDisponible")] Commande commande)
         {
             if (ModelState.IsValid)
             {

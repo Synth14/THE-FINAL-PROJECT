@@ -4,15 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Gestion des commandes</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.NbPlaceDemande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voyage.NbPlaceDisponible)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalCommande)
@@ -32,6 +32,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Voyage.Titre)
         </th>
+
         <th></th>
     </tr>
 
@@ -39,6 +40,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.NbPlaceDemande)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voyage.NbPlaceDisponible)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TotalCommande)
@@ -58,8 +62,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Voyage.Titre)
         </td>
+
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCommande }) 
+            @Html.ActionLink("Edit", "Edit", new { id = item.IdCommande })
         </td>
     </tr>
 }
